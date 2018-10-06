@@ -30,7 +30,7 @@ class SubmissionBase:
         for part_id, result in self:
             parts[str(part_id)] = {'output': sprintf('%0.5f ', result)}
         result, response = self.request(parts)
-        response = json.loads(response)
+        response = json.loads(response.decode("utf-8"))
 
         # if an error was returned, print it and stop
         if 'errorMessage' in response:
