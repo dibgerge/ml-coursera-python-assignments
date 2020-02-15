@@ -13,7 +13,11 @@ These assignments work seamlessly with the class and do not require any of the m
 - The original assignment instructions have been completely re-written and the parts which used to reference MATLAB/OCTAVE functionality have been changed to reference its `python` counterpart.
 - The re-written instructions are now embedded within the Jupyter Notebook along with the `python` starter code. For each assignment, all work is done solely within the notebook.
 - The `python` assignments can be submitted for grading. They were tested to work perfectly well with the original Coursera grader that is currently used to grade the MATLAB/OCTAVE versions of the assignments. 
-- After each part of a given assignment, the Jupyter Notebook contains a cell which prompts the user for submitting the current part of the assignment for grading.   
+- After each part of a given assignment, the Jupyter Notebook contains a cell which prompts the user for submitting the current part of the assignment for grading.  
+
+ ## Online workspace
+ 
+ You can work on the assignments in an online workspace called [Deepnote](https://www.deepnote.com/). This allows you to play around with the code and access the assignments from your browser. [<img height="22"  src="https://beta.deepnote.com/buttons/launch-in-deepnote.svg">](https://beta.deepnote.com/launch?template=data-science&url=https%3A%2F%2Fgithub.com%2Fdibgerge%2Fml-coursera-python-assignments)
 
 ## Downloading the Assignments
 
@@ -24,7 +28,7 @@ To get started, you can start by either downloading a zip file of these assignme
 Each assignment is contained in a separate folder. For example, assignment 1 is contained within the folder `Exercise1`. Each folder contains two files: 
  - The assignment `jupyter` notebook, which has a `.ipynb` extension. All the code which you need to write will be written within this notebook.
  - A python module `utils.py` which contains some helper functions needed for the assignment. Functions within the `utils` module are called from the python notebook. You do not need to modify or add any code to this file.
- 
+
 ## Requirements 
 
 These assignments has been tested and developed using the following libraries: 
