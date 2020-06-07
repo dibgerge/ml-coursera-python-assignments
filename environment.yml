@@ -1,0 +1,9 @@
+name: machine_learning
+channels:
+  - defaults
+dependencies:
+  - jupyter=1.0.0
+  - matplotlib=2.1.2
+  - numpy=1.13.3
+  - python=3.6.4
+  - scipy=1.0.0

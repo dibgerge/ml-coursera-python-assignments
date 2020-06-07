@@ -57,7 +57,7 @@ If you are on a windows machine:
  
 Once you have installed python, create a new python environment will all the requirements using the following command: 
 
-    conda create -n machine_learning python=3.6 scipy=1 numpy=1.13 matplotlib=2.1 jupyter
+    conda env create -f environment.yml
  
 After the new environment is setup, activate it using (windows)
 
