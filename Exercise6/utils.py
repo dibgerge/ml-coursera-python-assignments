@@ -331,7 +331,7 @@ def getVocabList():
 
     :return:
     """
-    vocabList = np.genfromtxt(join('Data', 'vocab.txt'), dtype=object)
+    vocabList = np.genfromtxt(join('Data', 'vocab.txt'), dtype=str)
     return list(vocabList[:, 1].astype(str))
 
 
