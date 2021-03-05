@@ -88,6 +88,7 @@ If you are new to python and to `jupyter` notebooks, no worries! There is a plet
 - [Jupyter notebook](https://medium.com/codingthesmartway-com-blog/getting-started-with-jupyter-notebook-for-python-4e7082bd5d46): Getting started with the jupyter notebook. 
 
 - [Python introduction based on the class's MATLAB tutorial](https://github.com/mstampfer/Coursera-Stanford-ML-Python/blob/master/Coursera%20Stanford%20ML%20Python%20wiki.ipynb): This is the equivalent of class's MATLAB tutorial, in python.
+- [Vim in Jupyter Notebook](https://www.nbshare.io/notebook/660744560/How-to-Install-Jupyter-Notebook-on-Centos-8-and-Use-Vim-In-It/): How to Install Jupyter Notebook on Centos 8 and Use Vim In It
 
 
 ## Caveats and tips
