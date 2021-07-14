@@ -19,7 +19,9 @@ class Grader(SubmissionBase):
                       'Computing Cost (for multiple variables)',
                       'Gradient Descent (for multiple variables)',
                       'Normal Equations']
-        super().__init__('linear-regression', part_names)
+        part_names_key = ['DCRbJ', 'BGa4S', 'b65eO', 'BbS8u', 'FBlE2', 'RZAZC', '7m5Eu']
+        assignment_key = 'UkTlA-FyRRKV5ooohuwU6A'
+        super().__init__('linear-regression', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 8):

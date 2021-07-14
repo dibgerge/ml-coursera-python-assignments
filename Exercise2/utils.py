@@ -119,7 +119,9 @@ class Grader(SubmissionBase):
                       'Predict',
                       'Regularized Logistic Regression Cost',
                       'Regularized Logistic Regression Gradient']
-        super().__init__('logistic-regression', part_names)
+        part_names_key = ['sFxIn', 'yvXBE', 'HerlY', '9fxV6', 'OddeL', 'aUo3H']
+        assignment_key = 'JvOPouj-S-ys8KjYcPYqrg'
+        super().__init__('logistic-regression', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 7):

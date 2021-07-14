@@ -211,7 +211,9 @@ class Grader(SubmissionBase):
                       'PCA',
                       'Project Data (PCA)',
                       'Recover Data (PCA)']
-        super().__init__('k-means-clustering-and-pca', part_names)
+        part_names_key = ['7yN0U', 'G1WGM', 'ixOMV', 'AFoJK', 'vf9EL']
+        assignment_key = 'rGGTuM9gQoaikOnlhLII1A'
+        super().__init__('k-means-clustering-and-pca', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 6):

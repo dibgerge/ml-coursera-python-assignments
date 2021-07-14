@@ -1,21 +1,21 @@
-from urllib.parse import urlencode
-from urllib.request import urlopen
-import pickle
 import json
-from collections import OrderedDict
-import numpy as np
 import os
+import pickle
+from collections import OrderedDict
+
+import numpy as np
+import requests
 
 
 class SubmissionBase:
-
-    submit_url = 'https://www-origin.coursera.org/api/' \
-                 'onDemandProgrammingImmediateFormSubmissions.v1'
+    submit_url = 'https://www.coursera.org/api/onDemandProgrammingScriptSubmissions.v1?includes=evaluation'
     save_file = 'token.pkl'
 
-    def __init__(self, assignment_slug, part_names):
+    def __init__(self, assignment_slug, assignment_key, part_names, part_names_key):
         self.assignment_slug = assignment_slug
+        self.assignment_key = assignment_key
         self.part_names = part_names
+        self.part_names_key = part_names_key
         self.login = None
         self.token = None
         self.functions = OrderedDict()
@@ -28,24 +28,25 @@ class SubmissionBase:
         # Evaluate the different parts of exercise
         parts = OrderedDict()
         for part_id, result in self:
-            parts[str(part_id)] = {'output': sprintf('%0.5f ', result)}
-        result, response = self.request(parts)
+            parts[self.part_names_key[part_id - 1]] = {'output': sprintf('%0.5f ', result)}
+        response = self.request(parts)
         response = json.loads(response.decode("utf-8"))
 
         # if an error was returned, print it and stop
-        if 'errorMessage' in response:
-            print(response['errorMessage'])
+        if 'errorCode' in response:
+            print(response['message'], response['details']['learnerMessage'])
             return
 
         # Print the grading table
         print('%43s | %9s | %-s' % ('Part Name', 'Score', 'Feedback'))
         print('%43s | %9s | %-s' % ('---------', '-----', '--------'))
-        for part in parts:
-            part_feedback = response['partFeedbacks'][part]
-            part_evaluation = response['partEvaluations'][part]
+        for index, part in enumerate(parts):
+            part_feedback = response['linked']['onDemandProgrammingScriptEvaluations.v1'][0]['parts'][str(part)][
+                'feedback']
+            part_evaluation = response['linked']['onDemandProgrammingScriptEvaluations.v1'][0]['parts'][str(part)]
             score = '%d / %3d' % (part_evaluation['score'], part_evaluation['maxScore'])
-            print('%43s | %9s | %-s' % (self.part_names[int(part) - 1], score, part_feedback))
-        evaluation = response['evaluation']
+            print('%43s | %9s | %-s' % (self.part_names[int(index) - 1], score, part_feedback))
+        evaluation = response['linked']['onDemandProgrammingScriptEvaluations.v1'][0]
         total_score = '%d / %d' % (evaluation['score'], evaluation['maxScore'])
         print('                                  --------------------------------')
         print('%43s | %9s | %-s\n' % (' ', total_score, ' '))
@@ -71,18 +72,15 @@ class SubmissionBase:
                 pickle.dump((self.login, self.token), f)
 
     def request(self, parts):
-        params = {
-            'assignmentSlug': self.assignment_slug,
+        payload = {
+            'assignmentKey': self.assignment_key,
+            'submitterEmail': self.login,
             'secret': self.token,
-            'parts': parts,
-            'submitterEmail': self.login}
+            'parts': dict(eval(str(parts)))}
+        headers = {}
 
-        params = urlencode({'jsonBody': json.dumps(params)}).encode("utf-8")
-        f = urlopen(self.submit_url, params)
-        try:
-            return 0, f.read()
-        finally:
-            f.close()
+        r = requests.post(self.submit_url, data=json.dumps(payload), headers=headers)
+        return r.content
 
     def __iter__(self):
         for part_id in self.functions:

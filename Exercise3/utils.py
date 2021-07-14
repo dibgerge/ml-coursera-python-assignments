@@ -79,8 +79,9 @@ class Grader(SubmissionBase):
                       'One-vs-All Classifier Training',
                       'One-vs-All Classifier Prediction',
                       'Neural Network Prediction Function']
-
-        super().__init__('multi-class-classification-and-neural-networks', part_names)
+        part_names_key = ['jzAIf', 'LjDnh', '3yxcY', 'yNspP']
+        assignment_key = '2KZRbGlpQnyzVI8Ki4uXjw'
+        super().__init__('multi-class-classification-and-neural-networks', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 5):

@@ -138,7 +138,9 @@ class Grader(SubmissionBase):
                       'Learning Curve',
                       'Polynomial Feature Mapping',
                       'Validation Curve']
-        super().__init__('regularized-linear-regression-and-bias-variance', part_names)
+        part_names_key = ['a6bvf', 'x4FhA', 'n3zWY', 'lLaa4', 'gyJbG']
+        assignment_key = '-wEfetVmQgG3j-mtasztYg'
+        super().__init__('regularized-linear-regression-and-bias-variance', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 6):

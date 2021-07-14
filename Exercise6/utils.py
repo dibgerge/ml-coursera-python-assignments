@@ -695,7 +695,9 @@ class Grader(SubmissionBase):
                       'Parameters (C, sigma) for Dataset 3',
                       'Email Processing',
                       'Email Feature Extraction']
-        super().__init__('support-vector-machines', part_names)
+        part_names_key = ['drOLk', 'JYt9Q', 'UHwLk', 'RIiFh']
+        assignment_key = 'xHfBJWXxTdKXrUG7dHTQ3g'
+        super().__init__('support-vector-machines', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 5):
