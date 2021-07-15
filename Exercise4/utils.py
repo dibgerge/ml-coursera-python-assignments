@@ -193,7 +193,9 @@ class Grader(SubmissionBase):
                       'Sigmoid Gradient',
                       'Neural Network Gradient (Backpropagation)',
                       'Regularized Gradient']
-        super().__init__('neural-network-learning', part_names)
+        part_names_key = ['aAiP2', '8ajiz', 'rXsEO', 'TvZch', 'pfIYT']
+        assignment_key = 'xolSVXukR72JH37bfzo0pg'
+        super().__init__('neural-network-learning', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 6):
