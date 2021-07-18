@@ -236,7 +236,7 @@ class Grader(SubmissionBase):
                       'Regularized Cost',
                       'Regularized Gradient']
         part_names_key = ['WGzrg', '80Tcg', 'KDzSh', 'wZud3', 'BP3th', 'YF0u1']
-        assignment_key = 'JvOPouj-S-ys8KjYcPYqrg'
+        assignment_key = 'gkyVYM98RcWlmQ9s84QNKA'
         super().__init__('anomaly-detection-and-recommender-systems', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
