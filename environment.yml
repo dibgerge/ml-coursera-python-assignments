@@ -7,3 +7,4 @@ dependencies:
   - numpy=1.13.3
   - python=3.6.4
   - scipy=1.0.0
+  - requests
