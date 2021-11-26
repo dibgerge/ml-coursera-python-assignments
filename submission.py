@@ -45,7 +45,7 @@ class SubmissionBase:
                 'feedback']
             part_evaluation = response['linked']['onDemandProgrammingScriptEvaluations.v1'][0]['parts'][str(part)]
             score = '%d / %3d' % (part_evaluation['score'], part_evaluation['maxScore'])
-            print('%43s | %9s | %-s' % (self.part_names[int(index) - 1], score, part_feedback))
+            print('%43s | %9s | %-s' % (self.part_names[int(index)], score, part_feedback))
         evaluation = response['linked']['onDemandProgrammingScriptEvaluations.v1'][0]
         total_score = '%d / %d' % (evaluation['score'], evaluation['maxScore'])
         print('                                  --------------------------------')
