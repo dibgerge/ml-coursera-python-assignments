@@ -80,8 +80,8 @@ def debugInitializeWeights(fan_out, fan_in):
     """
     # Initialize W using "sin". This ensures that W is always of the same values and will be
     # useful for debugging
-    W = np.sin(np.arange(1, 1 + (1+fan_in)*fan_out))/10.0
-    W = W.reshape(fan_out, 1+fan_in, order='F')
+    W = np.sin(np.arange(1, 1 + (1 + fan_in) * fan_out)) / 10.0
+    W = W.reshape(fan_out, 1 + fan_in, order='F')
     return W
 
 
@@ -116,7 +116,7 @@ def computeNumericalGradient(J, theta, e=1e-4):
     for i in range(theta.size):
         loss1, _ = J(theta - perturb[:, i])
         loss2, _ = J(theta + perturb[:, i])
-        numgrad[i] = (loss2 - loss1)/(2*e)
+        numgrad[i] = (loss2 - loss1) / (2 * e)
     return numgrad
 
 
@@ -146,12 +146,12 @@ def checkNNGradients(nnCostFunction, lambda_=0):
 
     # Reusing debugInitializeWeights to generate X
     X = debugInitializeWeights(m, input_layer_size - 1)
-    y = np.arange(1, 1+m) % num_labels
+    y = np.arange(1, 1 + m) % num_labels
     # print(y)
     # Unroll parameters
     nn_params = np.concatenate([Theta1.ravel(), Theta2.ravel()])
 
-    # short hand for cost function
+    # shorthand for cost function
     costFunc = lambda p: nnCostFunction(p, input_layer_size, hidden_layer_size,
                                         num_labels, X, y, lambda_)
     cost, grad = costFunc(nn_params)
@@ -165,7 +165,7 @@ def checkNNGradients(nnCostFunction, lambda_=0):
     # Evaluate the norm of the difference between two the solutions. If you have a correct
     # implementation, and assuming you used e = 0.0001 in computeNumericalGradient, then diff
     # should be less than 1e-9.
-    diff = np.linalg.norm(numgrad - grad)/np.linalg.norm(numgrad + grad)
+    diff = np.linalg.norm(numgrad - grad) / np.linalg.norm(numgrad + grad)
 
     print('If your backpropagation implementation is correct, then \n'
           'the relative difference will be small (less than 1e-9). \n'

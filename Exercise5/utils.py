@@ -33,7 +33,7 @@ def trainLinearReg(linearRegCostFunction, X, y, lambda_=0.0, maxiter=200):
     # Initialize Theta
     initial_theta = np.zeros(X.shape[1])
 
-    # Create "short hand" for the cost function to be minimized
+    # Create "shorthand" for the cost function to be minimized
     costFunction = lambda t: linearRegCostFunction(X, y, t, lambda_)
 
     # Now, costFunction is a function that takes in only one argument
@@ -47,7 +47,7 @@ def trainLinearReg(linearRegCostFunction, X, y, lambda_=0.0, maxiter=200):
 def featureNormalize(X):
     """
     Normalizes the features in X returns a normalized version of X where the mean value of each
-    feature is 0 and the standard deviation is 1. This is often a good preprocessing step to do when
+    feature is 0 and the standard deviation is 1. This is often a good preprocessing step to take when
     working with learning algorithms.
 
     Parameters
@@ -163,4 +163,3 @@ class Grader(SubmissionBase):
             except KeyError:
                 yield part_id, 0
             yield part_id, res
-
