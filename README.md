@@ -3,7 +3,7 @@
 
 ![](machinelearning.jpg)
 
-This repositry contains the python versions of the programming assignments for the [Machine Learning online class](https://www.coursera.org/learn/machine-learning) taught by Professor Andrew Ng. This is perhaps the most popular introductory online machine learning class. In addition to being popular, it is also one of the best Machine learning classes any interested student can take to get started with machine learning. An unfortunate aspect of this class is that the programming assignments are in MATLAB or OCTAVE, probably because this class was made before python became the go-to language in machine learning.
+This repository contains the Python versions of the programming assignments for the [Machine Learning online class](https://www.coursera.org/learn/machine-learning) taught by Professor Andrew Ng. This is perhaps the most popular introductory online machine learning class. In addition to being popular, it is also one of the best Machine learning classes any interested student can take to get started with machine learning. An unfortunate aspect of this class is that the programming assignments are in MATLAB or OCTAVE, probably because this class was made before python became the go-to language in machine learning.
 
 The Python machine learning ecosystem has grown exponentially in the past few years, and is still gaining momentum. I suspect that many students who want to get started with their machine learning journey would like to start it with Python also. It is for those reasons I have decided to re-write all the programming assignments in Python, so students can get acquainted with its ecosystem from the start of their learning journey. 
 
@@ -27,11 +27,11 @@ To get started, you can start by either downloading a zip file of these assignme
     
 Each assignment is contained in a separate folder. For example, assignment 1 is contained within the folder `Exercise1`. Each folder contains two files: 
  - The assignment `jupyter` notebook, which has a `.ipynb` extension. All the code which you need to write will be written within this notebook.
- - A python module `utils.py` which contains some helper functions needed for the assignment. Functions within the `utils` module are called from the python notebook. You do not need to modify or add any code to this file.
+ - A Python module `utils.py` which contains some helper functions needed for the assignment. Functions within the `utils` module are called from the Python notebook. You do not need to modify or add any code to this file.
 
 ## Requirements 
 
-These assignments has been tested and developed using the following libraries: 
+These assignments have been tested and developed using the following libraries: 
 
     - python==3.6.4
     - numpy==1.13.3
@@ -45,11 +45,11 @@ We recommend using at least these versions of the required libraries or later. P
 ## Python Installation
 
 We highly recommend using anaconda for installing python. [Click here](https://www.anaconda.com/download/) to go to Anaconda's download page. Make sure to download Python 3.6 version.
-If you are on a windows machine:
+If you are on a Windows machine:
  - Open the executable after download is complete and follow instructions.
- - Once installation is complete, open `Anaconda prompt` from the start menu. This will open a terminal with python enabled.
+ - Once installation is complete, open `Anaconda prompt` from the start menu. This will open a terminal with Python enabled.
  
- If you are on a linux machine: 
+ If you are on a Linux machine: 
  
  - Open a terminal and navigate to the directory where Anaconda was downloaded. 
  - Change the permission to the downloaded file so that it can be executed. So if the downloaded file name is `Anaconda3-5.1.0-Linux-x86_64.sh`, then use the following command:
@@ -59,19 +59,19 @@ If you are on a windows machine:
  - Now, run the installation script using `./Anaconda3-5.1.0-Linux-x86_64.sh`, and follow installation instructions in the terminal.
  
  
-Once you have installed python, create a new python environment will all the requirements using the following command: 
+Once you have installed Python, create a new Python environment with all the requirements using the following command: 
 
     conda env create -f environment.yml
  
-After the new environment is setup, activate it using (windows)
+After the new environment is set up, activate it using (Windows)
 
     activate machine_learning
    
-or if you are on a linux machine
+or if you are on a Linux machine
 
     source activate machine_learning 
 
-Now we have our python environment all set up, we can start working on the assignments. To do so, navigate to the directory where the assignments were installed, and launch the jupyter notebook from the terminal using the command
+Now that we have our Python environment all set up, we can start working on the assignments. To do so, navigate to the directory where the assignments were installed, and launch the Jupyter notebook from the terminal using the command
 
     jupyter notebook
 
@@ -79,25 +79,25 @@ This should automatically open a tab in the default browser. To start with assig
 
 ## Python Tutorials
 
-If you are new to python and to `jupyter` notebooks, no worries! There is a plethora of tutorials and documentation to get you started. Here are a few links which might be of help:
+If you are new to Python and to `jupyter` notebooks, no worries! There is a plethora of tutorials and documentation to get you started. Here are a few links which might be of help:
 
-- [Python Programming](https://pythonprogramming.net/introduction-to-python-programming/): A turorial with videos about the basics of python. 
+- [Python Programming](https://pythonprogramming.net/introduction-to-python-programming/): A tutorial with videos about the basics of Python. 
 
 - [Numpy and matplotlib tutorial](http://cs231n.github.io/python-numpy-tutorial/): We will be using numpy extensively for matrix and vector operations. This is great tutorial to get you started with using numpy and matplotlib for plotting.
 
-- [Jupyter notebook](https://medium.com/codingthesmartway-com-blog/getting-started-with-jupyter-notebook-for-python-4e7082bd5d46): Getting started with the jupyter notebook. 
+- [Jupyter notebook](https://medium.com/codingthesmartway-com-blog/getting-started-with-jupyter-notebook-for-python-4e7082bd5d46): Getting started with the Jupyter notebook. 
 
-- [Python introduction based on the class's MATLAB tutorial](https://github.com/mstampfer/Coursera-Stanford-ML-Python/blob/master/Coursera%20Stanford%20ML%20Python%20wiki.ipynb): This is the equivalent of class's MATLAB tutorial, in python.
+- [Python introduction based on the class's MATLAB tutorial](https://github.com/mstampfer/Coursera-Stanford-ML-Python/blob/master/Coursera%20Stanford%20ML%20Python%20wiki.ipynb): This is the equivalent of class's MATLAB tutorial, in Python.
 
 
 ## Caveats and tips
 
-- In many of the exercises, the regularization parameter $\lambda$ is denoted as the variable name `lambda_`, notice the underscore at the end of the name. This is because `lambda` is a reserved python keyword, and should never be used as a variable name.
+- In many of the exercises, the regularization parameter $\lambda$ is denoted as the variable name `lambda_`, notice the underscore at the end of the name. This is because `lambda` is a reserved Python keyword, and should never be used as a variable name.
 
--  In `numpy`, the function `dot` is used to perform matrix multiplication. The operation '*' only does element-by-element multiplication (unlike MATLAB). If you are using python version 3.5+, the operator '@' is the new matrix multiplication, and it is equivalent to the `dot` function.
+-  In `numpy`, the function `dot` is used to perform matrix multiplication. The operation '*' only does element-by-element multiplication (unlike MATLAB). If you are using Python version 3.5+, the operator '@' is the new matrix multiplication, and it is equivalent to the `dot` function.
 
 ## Acknowledgements
 
 - I would like to thank professor Andrew Ng and the crew of the Stanford Machine Learning class on Coursera for such an awesome class. 
 
-- Some of the material used, especially the code for submitting assignments for grading is based on [`mstampfer`'s](https://github.com/mstampfer/Coursera-Stanford-ML-Python) python implementation of the assignments. 
+- Some of the material used, especially the code for submitting assignments for grading is based on [`mstampfer`'s](https://github.com/mstampfer/Coursera-Stanford-ML-Python) Python implementation of the assignments. 
