@@ -55,7 +55,7 @@ def displayData(X, example_width=None, figsize=(10, 10)):
 def featureNormalize(X):
     """
     Normalizes the features in X returns a normalized version of X where the mean value of each
-    feature is 0 and the standard deviation is 1. This is often a good preprocessing step to do when
+    feature is 0 and the standard deviation is 1. This is often a good preprocessing step to take when
     working with learning algorithms.
 
     Parameters
@@ -112,7 +112,7 @@ def plotProgresskMeans(i, X, centroid_history, idx_history):
     norm = mpl.colors.Normalize(vmin=0, vmax=2)
 
     for k in range(K):
-        current = np.stack([c[k, :] for c in centroid_history[:i+1]], axis=0)
+        current = np.stack([c[k, :] for c in centroid_history[:i + 1]], axis=0)
         pyplot.plot(current[:, 0], current[:, 1],
                     '-Xk',
                     mec='k',
@@ -125,10 +125,10 @@ def plotProgresskMeans(i, X, centroid_history, idx_history):
                        c=idx_history[i],
                        cmap=cmap,
                        marker='o',
-                       s=8**2,
-                       linewidths=1,)
+                       s=8 ** 2,
+                       linewidths=1, )
     pyplot.grid(False)
-    pyplot.title('Iteration number %d' % (i+1))
+    pyplot.title('Iteration number %d' % (i + 1))
 
 
 def runkMeans(X, centroids, findClosestCentroids, computeCentroids,
@@ -143,7 +143,7 @@ def runkMeans(X, centroids, findClosestCentroids, computeCentroids,
         data set is a total of m examples.
 
     centroids : array_like
-        Initial centroid location for each clusters. This is a matrix of size (K, n). K is the total
+        Initial centroid location for each cluster. This is a matrix of size (K, n). K is the total
         number of clusters and n is the dimensions of each data point.
 
     findClosestCentroids : func

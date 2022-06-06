@@ -28,7 +28,7 @@ def mapFeature(X1, X2, degree=6):
     Returns
     -------
     : array_like
-        A matrix of of m rows, and columns depend on the degree of polynomial.
+        A matrix of m rows, and columns depend on the degree of polynomial.
     """
     if X1.ndim > 0:
         out = [np.ones(X1.shape[0])]
@@ -59,7 +59,7 @@ def plotDecisionBoundary(plotData, theta, X, y):
         Parameters for logistic regression. A vector of shape (n+1, ).
 
     X : array_like
-        The input dataset. X is assumed to be  a either:
+        The input dataset. X is assumed to be either a:
             1) Mx3 matrix, where the first column is an all ones column for the intercept.
             2) MxN, N>3 matrix, where the first column is all ones.
 

@@ -1,5 +1,6 @@
 import numpy as np
 import sys
+
 sys.path.append('..')
 
 from submission import SubmissionBase
@@ -8,7 +9,7 @@ from submission import SubmissionBase
 class Grader(SubmissionBase):
     X1 = np.column_stack((np.ones(20), np.exp(1) + np.exp(2) * np.linspace(0.1, 2, 20)))
     Y1 = X1[:, 1] + np.sin(X1[:, 0]) + np.cos(X1[:, 1])
-    X2 = np.column_stack((X1, X1[:, 1]**0.5, X1[:, 1]**0.25))
+    X2 = np.column_stack((X1, X1[:, 1] ** 0.5, X1[:, 1] ** 0.25))
     Y2 = np.power(Y1, 0.5) + Y1
 
     def __init__(self):

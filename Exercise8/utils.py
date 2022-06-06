@@ -49,7 +49,7 @@ def loadMovieList():
         A list of strings, representing all movie names.
     """
     # Read the fixed movieulary list
-    with open(join('Data', 'movie_ids.txt'),  encoding='ISO-8859-1') as fid:
+    with open(join('Data', 'movie_ids.txt'), encoding='ISO-8859-1') as fid:
         movies = fid.readlines()
 
     movieNames = []
@@ -79,7 +79,7 @@ def computeNumericalGradient(J, theta, e=1e-4):
     Returns
     -------
     numgrad : array_like
-        The numerical gradient with respect to theta. Has same shape as theta.
+        The numerical gradient with respect to theta. Has the same shape as theta.
 
     Notes
     -----
@@ -95,7 +95,7 @@ def computeNumericalGradient(J, theta, e=1e-4):
     for i in range(theta.size):
         loss1, _ = J(theta - perturb[:, i])
         loss2, _ = J(theta + perturb[:, i])
-        numgrad[i] = (loss2 - loss1)/(2*e)
+        numgrad[i] = (loss2 - loss1) / (2 * e)
     return numgrad
 
 
@@ -134,13 +134,13 @@ def checkCostFunction(cofiCostFunc, lambda_=0.):
     numgrad = computeNumericalGradient(
         lambda x: cofiCostFunc(x, Y, R, num_users, num_movies, num_features, lambda_), params)
 
-    cost, grad = cofiCostFunc(params, Y, R, num_users,num_movies, num_features, lambda_)
+    cost, grad = cofiCostFunc(params, Y, R, num_users, num_movies, num_features, lambda_)
 
     print(np.stack([numgrad, grad], axis=1))
     print('\nThe above two columns you get should be very similar.'
           '(Left-Your Numerical Gradient, Right-Analytical Gradient)')
 
-    diff = np.linalg.norm(numgrad-grad)/np.linalg.norm(numgrad+grad)
+    diff = np.linalg.norm(numgrad - grad) / np.linalg.norm(numgrad + grad)
     print('If your cost function implementation is correct, then '
           'the relative difference will be small (less than 1e-9).')
     print('\nRelative Difference: %g' % diff)
@@ -176,7 +176,7 @@ def multivariateGaussian(X, mu, Sigma2):
         Sigma2 = np.diag(Sigma2)
 
     X = X - mu
-    p = (2 * np.pi) ** (- k / 2) * np.linalg.det(Sigma2) ** (-0.5)\
+    p = (2 * np.pi) ** (- k / 2) * np.linalg.det(Sigma2) ** (-0.5) \
         * np.exp(-0.5 * np.sum(np.dot(X, np.linalg.pinv(Sigma2)) * X, axis=1))
     return p
 
@@ -209,7 +209,7 @@ def visualizeFit(X, mu, sigma2):
     pyplot.plot(X[:, 0], X[:, 1], 'bx', mec='b', mew=2, ms=8)
 
     if np.all(abs(Z) != np.inf):
-        pyplot.contour(X1, X2, Z, levels=10**(np.arange(-20., 1, 3)), zorder=100)
+        pyplot.contour(X1, X2, Z, levels=10 ** (np.arange(-20., 1, 3)), zorder=100)
 
 
 class Grader(SubmissionBase):
@@ -221,7 +221,7 @@ class Grader(SubmissionBase):
     Theta = np.cos(np.arange(1, 1 + n_u * n)).reshape(n_u, n, order='F')
     Y = np.sin(np.arange(1, 1 + 2 * n_m * n_u, 2)).reshape(n_m, n_u, order='F')
     R = Y > 0.5
-    pval = np.concatenate([abs(Y.ravel('F')),  [0.001],  [1]])
+    pval = np.concatenate([abs(Y.ravel('F')), [0.001], [1]])
     Y = Y * R  # set 'Y' values to 0 for movies not reviewed
 
     yval = np.concatenate([R.ravel('F'), [1], [0]])
@@ -254,15 +254,15 @@ class Grader(SubmissionBase):
                     res = J
                 elif part_id == 4:
                     J, grad = func(self.params, self.Y, self.R, self.n_u, self.n_m, self.n, 0)
-                    xgrad = grad[:self.n_m*self.n].reshape(self.n_m, self.n)
-                    thetagrad = grad[self.n_m*self.n:].reshape(self.n_u, self.n)
+                    xgrad = grad[:self.n_m * self.n].reshape(self.n_m, self.n)
+                    thetagrad = grad[self.n_m * self.n:].reshape(self.n_u, self.n)
                     res = np.hstack([xgrad.ravel('F'), thetagrad.ravel('F')]).tolist()
                 elif part_id == 5:
                     res, _ = func(self.params, self.Y, self.R, self.n_u, self.n_m, self.n, 1.5)
                 elif part_id == 6:
                     J, grad = func(self.params, self.Y, self.R, self.n_u, self.n_m, self.n, 1.5)
-                    xgrad = grad[:self.n_m*self.n].reshape(self.n_m, self.n)
-                    thetagrad = grad[self.n_m*self.n:].reshape(self.n_u, self.n)
+                    xgrad = grad[:self.n_m * self.n].reshape(self.n_m, self.n)
+                    thetagrad = grad[self.n_m * self.n:].reshape(self.n_u, self.n)
                     res = np.hstack([xgrad.ravel('F'), thetagrad.ravel('F')]).tolist()
                 else:
                     raise KeyError
